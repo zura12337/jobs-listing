@@ -71,7 +71,7 @@ if($_POST){
         </div>
 
         <label for="mobile">Phone number:</label>
-        <input type="number" name="mobile" id="mobile" value="<?php echo $phone_number; ?>"><br>
+        <input type="number" name="mobile" id="mobile" value="<?php $phone_number; ?>"><br>
 
         <div>
             <label for="individual-check">Individual</label>
