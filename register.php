@@ -1,8 +1,7 @@
 <?php
 if($_POST){
     $email = $_POST["email"];
-    $f_name = $_POST["first_name"];
-    $l_name = $_POST["last_name"];
+    $full_name = $_POST["full_name"];
     $phone_number = $_POST["mobile"];
 
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
@@ -10,7 +9,7 @@ if($_POST){
     $error_class = 'invalid';
     if($_POST['pass'] == $_POST['re_pass']){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $newUser = array('f_name' => $f_name, 'l_name' => $l_name, 'phone' => $phone_number, 'password' => $password);
+            $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password);
             $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);
             
@@ -56,11 +55,8 @@ if($_POST){
     <div class="container">
         <h1>Register</h1>
         <form action="register.php" method="post">
-            <label for="first_name">First name:</label>
-            <input type="text" class="form-control" name="first_name" id="first_name" value="<?php echo $f_name; ?>">
-
-            <label for="last_name">Last name:</label>
-            <input type="text" class="form-control" name="last_name" id="last_name" value="<?php echo $l_name; ?>">
+            <label for="full_name">Full name:</label>
+            <input type="text" class="form-control" name="full_name" id="full_name" value="<?php echo $full_name; ?>">
 
             <div class='<?php echo $mail_error_class; ?>'>
                 <label for="email">Email:</label>
