@@ -26,5 +26,3 @@ function Checkbox($name, $label) {
     echo ("<input id='$name' class='mt-4' type='checkbox' name='$name'/>
     <label for='$name'>$label</label><br />");
 }
-
-?>

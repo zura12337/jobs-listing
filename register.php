@@ -4,12 +4,13 @@ if($_POST){
     $f_name = $_POST["first_name"];
     $l_name = $_POST["last_name"];
     $phone_number = $_POST["mobile"];
+
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
-    var_dump($_POST["mobile"], $phone_number);
+
     $error_class = 'invalid';
     if($_POST['pass'] == $_POST['re_pass']){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $newUser = array('f_name' => $f_name, 'l_name' => $l_name, 'password' => $password);
+            $newUser = array('f_name' => $f_name, 'l_name' => $l_name, 'phone' => $phone_number, 'password' => $password);
             $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);
             
