@@ -1,7 +1,12 @@
 <?php
 
-require "lib/common.php";
+require_once "lib/common.php";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$error = '';
 if($_POST){
     $postEmail = $_POST['email'];
     $postPassword = $_POST['password'];
@@ -40,6 +45,9 @@ if($_POST){
     <title>JobSite</title>
 </head>
 <body>
+    <?php
+        require_once "lib/navbar.php";
+    ?>
     <div class="container">
         <h1>Login</h1>
         <form action="login.php" method="POST">

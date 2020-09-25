@@ -49,6 +49,9 @@ if($_POST){
     <title>JobSite</title>
 </head>
 <body>
+<?php
+    require "lib/navbar.php";
+?>
     <div class="container">
         <h1>Register</h1>
         <form action="register.php" method="post">
