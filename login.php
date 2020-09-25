@@ -11,7 +11,7 @@ if($_POST){
     $postEmail = $_POST['email'];
     $postPassword = $_POST['password'];
     $rememberMe = $_POST['remember-me'];
-    $json = file_get_contents('users.json');
+    $json = file_get_contents('database/users.json');
     $data = json_decode($json, true);
     foreach($data as $email => $item){
         $passwordHash = $item['password'];
@@ -25,7 +25,7 @@ if($_POST){
                     setcookie("SESSION_TOKEN", $session_token, ['expires' => time() + 604800]);
                 }
                 $data[$email]["SESSION_TOKEN"] = $session_token;
-                file_put_contents('users.json', json_encode($data));
+                file_put_contents('database/users.json', json_encode($data));
             break;
         }else{
             $error = "<span class='invalid'>Email or password is incorrect.</span><br>";
@@ -41,7 +41,7 @@ if($_POST){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <title>JobSite</title>
 </head>
 <body>

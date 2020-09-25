@@ -10,9 +10,9 @@ if($_POST){
     if($_POST['pass'] == $_POST['re_pass']){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             $newUser = array('f_name' => $f_name, 'l_name' => $l_name, 'password' => $password);
-            $json = file_get_contents('users.json');
+            $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);
-
+            
             foreach($data as $key => $value){
                 if ($key == $email){
                     $usernameExists_error = '<label for="email" class='.$error_class.'>User with this email already exists.</label>';
@@ -22,7 +22,7 @@ if($_POST){
             }
                 if(!isset($allRight)){
                     $data[$email] = $newUser;
-                    file_put_contents('users.json', json_encode($data));
+                    file_put_contents('database/users.json', json_encode($data));
                     echo "success!";
                     exit();
 //                    header("location: register.php");
