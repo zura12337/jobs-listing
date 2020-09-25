@@ -11,5 +11,10 @@ function Submit($label = "Submit"){
     echo ("<button class='btn btn-primary mt-3' type='submit'>$label</button>");
 }
 
+function NavLink($label, $link){
+    echo ("<li class='nav-item'>
+    <a class='nav-link' href='$link'>$label</a>
+  </li>");
+}
 
 ?>
