@@ -1,10 +1,17 @@
 <?php
 
-function Input($name, $label, $type = "text"){
+function Input($name, $label, $type = "text", $value=""){
     echo ("
     <label class='mt-2' for='$name'>$label</label>
-    <input type='$type' class='form-control' name='$name' id='$name'/>
+    <input type='$type' class='form-control' name='$name' id='$name' value='$value' required/>
     ");
+}
+
+function Radio($name, $id, $label){
+    echo ("<div class='form-check'>
+    <label for='$id'>$label</label>
+    <input class='form-check-label' type='radio' name='$name' id='$id'>
+    </div>");
 }
 
 function Submit($label = "Submit"){

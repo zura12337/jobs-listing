@@ -23,9 +23,7 @@ if($_POST){
                 if(!isset($allRight)){
                     $data[$email] = $newUser;
                     file_put_contents('database/users.json', json_encode($data));
-                    echo "success!";
-                    exit();
-//                    header("location: register.php");
+                    header("location: login.php");
                 }
         }else{
             $mail_error_class = $error_class;
@@ -55,41 +53,23 @@ if($_POST){
     <div class="container">
         <h1>Register</h1>
         <form action="register.php" method="post">
-            <label for="full_name">Full name:</label>
-            <input type="text" class="form-control" name="full_name" id="full_name" value="<?php echo $full_name; ?>">
-
-            <div class='<?php echo $mail_error_class; ?>'>
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" name="email" id="email" value="<?php echo $email; ?>"><br>
-
-                <?php
-                echo $mailError;
-                echo $usernameExists_error;
-                ?>
-
-            </div>
-
-            <label for="mobile">Phone number:</label>
-            <input type="number" class="form-control" name="mobile" id="mobile" value="<?php $phone_number; ?>"><br>
-
-            <div class="form-check">
-                <label for="individual-check">Individual</label>
-                <input class="form-check-label" type="radio" name="company-individual" id="individual-check">
-            </div>
-            <div class="form-check">
-                <label for="company-check">Company</label>
-                <input class="form-check-label" type="radio" name="company-individual" id="company-check"><br>
-            </div>
-
-            <div class='<?php echo $pass_error_class; ?>'>
-                <label for="pass">Password:</label>
-                <input class="form-control" type="password" name="pass" id="pass">
-
-                <label for="re_pass">Repeat Password:</label>
-                <input class="form-control" type="password" name="re_pass" id="re_pass">
-                <?php echo $passError; ?>
-            </div>
-            <input class="btn btn-primary mt-3" type="submit" id="submit" value="Submit"><br>
+            <?php
+            Input("full_name", "Full Name:", "text", $full_name);
+            echo "<div class='$mail_error_class'>";
+            Input("email", "Email:", "email", $email);
+            echo $mailError;
+            echo $usernameExists_error;
+            echo "</div>";
+            Input("mobile", "Phone Number", "number", $phone_number);
+            Radio("company-individual", "individual-check", "Individual");
+            Radio("company-individual", "company-check", "Company");
+            echo "<div class='$pass_error_class'>";
+            Input("pass", "Password:", "password");
+            Input("re_pass", "Repeat Password:", "password");
+            echo $passError;
+            echo "</div>";
+            Submit();
+            ?>
         </form>
 </body>
 </html>

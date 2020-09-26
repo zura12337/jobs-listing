@@ -26,6 +26,7 @@ if($_POST){
                 }
                 $data[$email]["SESSION_TOKEN"] = $session_token;
                 file_put_contents('database/users.json', json_encode($data));
+                header("Location: profile.php");
             break;
         }else{
             $error = "<span class='invalid'>Email or password is incorrect.</span><br>";
