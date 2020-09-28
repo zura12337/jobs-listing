@@ -8,6 +8,7 @@ if($_POST){
     $email = $_POST["email"];
     $full_name = $_POST["full_name"];
     $phone_number = $_POST["mobile"];
+    $company_individual = $_POST['company-individual'];    
     $imagePath = $_FILES['logo']['tmp_name'];
     $fileNewName = time() . '_' . $_FILES['logo']['name'];
     $fileDestination = "./uploads/".$fileNewName;
@@ -25,6 +26,10 @@ if($_POST){
                     $allRight = true;
                 }
             }
+                if($_FILES['logo']['size'] >= 200000){
+                    $imageError = "<span class='invalid'>Maximum File size is 2 mb</span>";
+                    $allRight = true;
+                }
                 if(!isset($allRight)){
                     $data[$email] = $newUser;
                     move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
@@ -58,16 +63,27 @@ if($_POST){
             Input("full_name", "Full Name", "text", $full_name);
             echo "<div class='$mail_error_class'>";
             Input("email", "Email", "email", $email);
-            echo $mailError;
             echo $usernameExists_error;
             echo "</div>";
             Input("mobile", "Phone Number", "number", $phone_number);
-            Radio("company-individual", "individual-check", "Individual", "checked");
-            Radio("company-individual", "company-check", "Company");
-            Input("logo", "Company Logo", "file");
+            if($company_individual === "company-check"){
+                Radio("company-individual", "individual-check", "Individual");
+                Radio("company-individual", "company-check", "Company", "checked");
+            }else{
+                Radio("company-individual", "individual-check", "Individual", "checked");
+                Radio("company-individual", "company-check", "Company");
+            }
+
+            ?>
+            <div id="image-upload" class=<?php if($company_individual === "individual-check") echo 'hidden' ?>>
+                <?php
+                Input("logo", "Company Logo", "file", null, "hidden");
+                echo $imageError;
+                ?>
+            </div>
+            <?php
             Input("pass", "Password", "password");
             Input("re_pass", "Repeat Password", "password");
-            echo $passError;
             Submit();
             ?>
         </form>
