@@ -10,12 +10,13 @@ if($_POST) {
     $jobDesc = $_POST['job-description'];
     $published = $_POST['published'];
     if(!empty($jobName) && !empty($jobDesc)){
-        $newJob = array('job-name' => $jobName, 'job-description' => $jobDesc, "published" => $published, "created-by" => $fullName, "date" => date('m/d/Y H:i:s', time()));
+        $newJob = array('job-name' => $jobName, 'job-description' => $jobDesc, "published" => $published, "creator-name" => $fullName, 'creator-email' => $email, "date" => date('m/d/Y H:i:s', time()));
         $json = file_get_contents('database/data.json');
         $data = json_decode($json, true);
         $index = count ((array)$data ) + 1;
         $data[$index] = $newJob;
         file_put_contents('database/data.json', json_encode($data));
+        var_dump($newJob);
     }else{
         $error = "<p class='invalid'>Please fill all fields</p>";
     }
