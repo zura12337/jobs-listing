@@ -15,7 +15,6 @@ function setExtraOption(option, optionName) {
       var elem = document.getElementById(option[i].htmlFor);
       if (elem !== null) {
         if (elem) elem[optionName] = option[i];
-        console.log(elem[optionName]);
       } else {
         var id = removeLastChars(option[i].id, 6);
         var elem = document.getElementById(id);
@@ -31,7 +30,7 @@ function validate(input, label) {
   if (input === "") {
     return `Please Enter ${label} field.`;
   } else {
-    return "";
+    return null;
   }
 }
 function removeLastChars(text, number) {
@@ -46,12 +45,36 @@ function validateInput(name) {
 }
 
 form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
   validateInput(fullName);
   validateInput(email);
   validateInput(mobile);
+  if (mobile.value.length >= 0 && mobile.value.length <= 7) {
+    mobile.error.innerHTML = "Phone number should contain at least 8 numbers";
+  }
   validateInput(logo);
   validateInput(password);
-  validateInput(repeatPassword);
+  var passPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  console.log(passPattern.test(password.value));
+  if (!passPattern.test(password.value)) {
+    password.error.innerHTML =
+      "Password should contain at least 8 characters and 1 uppercase";
+    event.preventDefault();
+  } else {
+    password.error.innerHTML = "";
+  }
+  if (password.value !== repeatPassword.value) {
+    repeatPassword.error.innerHTML = "Passwords don't match";
+    event.preventDefault();
+  } else {
+    repeatPassword.error.innerHTML = "";
+  }
+  if (
+    validateInput(fullName) ||
+    validateInput(email) ||
+    validateInput(mobile) ||
+    validateInput(logo) ||
+    validateInput(password)
+  ) {
+    event.preventDefault();
+  }
 });

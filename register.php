@@ -11,7 +11,6 @@ if($_POST){
     $imagePath = $_FILES['logo']['tmp_name'];
     $fileNewName = time() . '_' . $_FILES['logo']['name'];
     $fileDestination = "./uploads/".$fileNewName;
-    move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $error_class = 'invalid';
     if($_POST['pass'] == $_POST['re_pass']){
@@ -21,13 +20,14 @@ if($_POST){
             $data = json_decode($json, true);
             foreach($data as $key => $value){
                 if ($key == $email){
-                    $usernameExists_error = '<label for="email" class='.$error_class.'>User with this email already exists.</label>';
+                    $usernameExists_error = '<span for="email" class='.$error_class.'>User with this email already exists.</span>';
                     $emailExists_error_class = $error_class;
                     $allRight = true;
                 }
             }
                 if(!isset($allRight)){
                     $data[$email] = $newUser;
+                    move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
                     file_put_contents('database/users.json', json_encode($data));
                     header("location: login.php");
                 }
@@ -62,7 +62,7 @@ if($_POST){
             echo $usernameExists_error;
             echo "</div>";
             Input("mobile", "Phone Number", "number", $phone_number);
-            Radio("company-individual", "individual-check", "Individual");
+            Radio("company-individual", "individual-check", "Individual", "checked");
             Radio("company-individual", "company-check", "Company");
             Input("logo", "Company Logo", "file");
             Input("pass", "Password", "password");
