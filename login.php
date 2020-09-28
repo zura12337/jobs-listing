@@ -53,7 +53,7 @@ if($_POST){
         <h1>Login</h1>
         <form action="login.php" method="POST">
             <?php
-            Input("email", "Email:", "email");
+            Input("email", "Email", "email");
             Input("password", "Password", "password");
             echo $error;
             ?>

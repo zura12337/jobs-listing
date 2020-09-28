@@ -1,1 +1,26 @@
-{"gmeko2020@gmail.com":{"full_name":"dachi zedginidze","phone":"1222222222222","password":"$2y$10$kZRl0E9nt9DLc33I5Ew5sO0fy9bbOU0zuQhYmN26.Uic0\/J8tpSpW","SESSION_TOKEN":"D4mCesjKUo9\/bkiUuarfV0h9R\/v8EMKS"},"test@gmail.com":{"full_name":"test","phone":"123123123","password":"$2y$10$FxvsZpH7Qh2pQaha8A3CZOQNes7oWUz9YtgzTMzQT5lHcBucegbA2","SESSION_TOKEN":"5ARjM0EDABlSqLGiGyQJ1\/Rk8\/XKFJXD"}}
+{
+  "gmeko2020@gmail.com": {
+    "full_name": "dachi zedginidze",
+    "phone": "1222222222222",
+    "password": "$2y$10$kZRl0E9nt9DLc33I5Ew5sO0fy9bbOU0zuQhYmN26.Uic0/J8tpSpW",
+    "SESSION_TOKEN": "D4mCesjKUo9/bkiUuarfV0h9R/v8EMKS"
+  },
+  "test@gmail.com": {
+    "full_name": "test",
+    "phone": "123123123",
+    "password": "$2y$10$FxvsZpH7Qh2pQaha8A3CZOQNes7oWUz9YtgzTMzQT5lHcBucegbA2",
+    "SESSION_TOKEN": "5ARjM0EDABlSqLGiGyQJ1/Rk8/XKFJXD"
+  },
+  "123213@gmail.com": {
+    "full_name": "test",
+    "phone": "123",
+    "password": "$2y$10$h4ZzjVOT3UDC3Li7IF0nVeQXodEkGexPS3jymM6BYErR3xMFeGHui",
+    "image": null
+  },
+  "zura.kurta@gmail.com": {
+    "full_name": "test",
+    "phone": "12312321",
+    "password": "$2y$10$KRQgYT75wzVgKWUrtAJ6PejrODn2l8OlErFZ3fu2keKuZTA3txC7W",
+    "image": "./uploads/1601234141_Screenshot from 2020-09-20 02-25-53.png"
+  }
+}
