@@ -4,6 +4,7 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
+
 if($_POST){
     $email = $_POST["email"];
     $full_name = $_POST["full_name"];
@@ -65,7 +66,7 @@ if($_POST){
     <div class="container">
         <h1>Register</h1>
         <form id="register_form" action="register.php" method="post" enctype="multipart/form-data">
-            <?php
+        <?php
             Input("full_name", "Full Name", "text", $full_name);
             echo "<div class='$mail_error_class'>";
             Input("email", "Email", "email", $email);

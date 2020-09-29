@@ -16,16 +16,17 @@ require "lib/get-user-info.php";
 
 <div class="container mt-3">
     <div>
-        <p> Hello, <?php echo $fullName; ?></p>
+        <p>Hello, <?php echo $fullName;?></p>
     </div>
 
-    <div>
-        <img src=<?php if($logo) echo $logo; else echo "https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" ?> id="user-logo" />
-        <p>email: <?php echo $email; ?></p>
-        <p>phone: <?php echo $phone; ?></p>
+    <div class="column">
+        <img src=<?php echo $logo?> id="user-logo" />
+        <p class="col-3">Email: <?php echo $email; ?></p>
+        <p class="col-3">Phone: <?php echo $phone; ?></p>
     </div>
 
     <a class="btn btn-primary" href="edit-profile.php">Edit profile</a>
+    <a class="btn btn-danger" href="logout.php">Logout</a>
 </div>
 
 

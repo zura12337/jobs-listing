@@ -1,9 +1,6 @@
 <?php
 
 require "lib/get-user-info.php";
-session_start();
-session_unset();
-session_destroy();
 
 
 $json = file_get_contents('database/users.json');
@@ -14,5 +11,7 @@ foreach($data as $userEmail => $item){
         file_put_contents('database/users.json', json_encode($data));
     }
 }
+session_destroy();
+session_unset();
 setcookie('SESSION_TOKEN', null, -1);
 header('Location: login.php');

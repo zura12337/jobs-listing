@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
+:root {
+  --button-primary-color: #1d9bef;
+}
+
+* {
+  font-family: "Lato";
+}
+
 .invalid {
   color: #ff3333;
   font-size: 14px;
@@ -12,6 +23,31 @@
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 20px;
+}
+
+#navbar-logo {
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  margin: 1.5px;
+}
+
+#register-button {
+  background-color: var(--button-primary-color);
+  color: white !important;
+  border-radius: 3px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  text-transform: uppercase;
+}
+#login-button {
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+.far,
+.fas {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
 }
