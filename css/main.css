@@ -3,6 +3,11 @@
 
 :root {
   --button-primary-color: #1d9bef;
+  --button-danger-color: #ef1d1d;
+}
+
+body {
+  background-color: #f1f1f1 !important;
 }
 
 * {
@@ -27,11 +32,40 @@
   margin: 20px;
 }
 
+.btn-primary {
+  background-color: var(--button-primary-color);
+  color: white;
+  border-radius: 3px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  border: 1px solid var(--button-primary-color);
+}
+.btn-danger {
+  background-color: var(--button-danger-color);
+  color: white;
+  border-radius: 3px;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  border: 1px solid var(--button-danger-color);
+}
+.btn-danger:hover {
+  background-color: transparent !important;
+  border: 1px solid var(--button-danger-color) !important;
+  color: var(--button-danger-color);
+}
+
+.btn-primary:hover {
+  background-color: transparent !important;
+  border: 1px solid var(--button-primary-color) !important;
+  color: var(--button-primary-color);
+}
+
 #navbar-logo {
   width: 35px;
   height: 35px;
   border-radius: 17.5px;
   margin: 1.5px;
+  margin-right: 5px;
 }
 
 #register-button {
@@ -58,11 +92,26 @@
   color: rgb(25, 26, 27) !important;
   font-weight: 700 !important;
   border-radius: 3px !important;
-  border: 1px solid #1d9bef54 !important;
+  border: 1px solid #1d9bef3b !important;
 }
 
 #header {
   text-transform: uppercase;
   margin-top: 40px;
   font-weight: 700;
+}
+table {
+  background-color: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  border-collapse: collapse;
+}
+td,
+th {
+  padding-left: 50px !important;
+  padding-top: 15px !important;
+}
+td img {
+  margin-right: 10px !important;
 }
