@@ -1,5 +1,6 @@
 <?php
-require_once "lib/get-user-info.php";
+require "lib/get-user-info.php";
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,11 +20,12 @@ require_once "lib/get-user-info.php";
     </div>
 
     <div>
+        <img src=<?php if($logo) echo $logo; else echo "https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png" ?> id="user-logo" />
         <p>email: <?php echo $email; ?></p>
         <p>phone: <?php echo $phone; ?></p>
     </div>
 
-    <a class="btn btn-primary" href="edit_profile.php">Edit profile</a>
+    <a class="btn btn-primary" href="edit-profile.php">Edit profile</a>
 </div>
 
 
