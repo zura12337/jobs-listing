@@ -22,6 +22,8 @@ if(isset($_GET['jobId'])){
             }
         }
     }
+}else{
+    header("Location: ../profile.php");
 }
 
 

@@ -57,7 +57,7 @@ if($_POST){
     require "lib/navbar.php";
 ?>
     <div class="container">
-        <h1>Edit Profile</h1>
+        <h1 id="header">Edit Profile</h1>
         <form id="edit_profile_form" action="edit-profile.php" method="post" enctype="multipart/form-data">
             <?php
             Input("full_name", "Full Name", "text", $fullName);

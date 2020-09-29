@@ -63,43 +63,44 @@ if($_POST){
 <?php
     require "lib/navbar.php";
 ?>
-    <div class="container">
-        <h1>Register</h1>
-        <form id="register_form" action="register.php" method="post" enctype="multipart/form-data">
-        <?php
-            Input("full_name", "Full Name", "text", $full_name);
-            echo "<div class='$mail_error_class'>";
-            Input("email", "Email", "email", $email);
-            echo $usernameExists_error;
-            echo "</div>";
-            Input("mobile", "Phone Number", "number", $phone_number);
-            if($company_individual === "company"){
-                Radio("company-individual", "individual-check", "Individual");
-                Radio("company-individual", "company-check", "Company", "checked");
-            }else{
-                Radio("company-individual", "individual-check", "Individual", "checked");
-                Radio("company-individual", "company-check", "Company");
-            }
-
-            ?>
-            <div id="image-upload" class=<?php 
-            if($company_individual === "individual" || $company_individual === null){ 
-                echo 'hidden';
-            }
-            else{ 
-                echo "";
-            } ?>>
-                <?php
-                Input("logo", "Company Logo", "file");
-                echo $imageError;
-                ?>
-            </div>
+        <div class="container ">
+            <form id="register_form" class="register-form" action="register.php" method="post" enctype="multipart/form-data">
+            <h1 id="header">Register</h1>
             <?php
-            Input("pass", "Password", "password");
-            Input("re_pass", "Repeat Password", "password");
-            Submit();
-            ?>
-        </form>
+                Input("full_name", "Full Name", "text", $full_name);
+                echo "<div class='$mail_error_class'>";
+                Input("email", "Email", "email", $email);
+                echo $usernameExists_error;
+                echo "</div>";
+                Input("mobile", "Phone Number", "number", $phone_number);
+                if($company_individual === "company"){
+                    Radio("company-individual", "individual-check", "Individual");
+                    Radio("company-individual", "company-check", "Company", "checked");
+                }else{
+                    Radio("company-individual", "individual-check", "Individual", "checked");
+                    Radio("company-individual", "company-check", "Company");
+                }
+
+                ?>
+                <div id="image-upload" class=<?php 
+                if($company_individual === "individual" || $company_individual === null){ 
+                    echo 'hidden';
+                }
+                else{ 
+                    echo "";
+                } ?>>
+                    <?php
+                    Input("logo", "Company Logo", "file");
+                    echo $imageError;
+                    ?>
+                </div>
+                <?php
+                Input("pass", "Password", "password");
+                Input("re_pass", "Repeat Password", "password");
+                Submit();
+                ?>
+            </form>
+        </div>
 </body>
 <script type="module" defer src="./js/register.js"></script>
 </html>

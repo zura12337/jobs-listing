@@ -37,7 +37,7 @@ if($_POST) {
     require "lib/navbar.php";
     ?>
     <div class="container mt-3">
-        <h1>Create New Job</h1>
+        <h1 id="header">Create New Job</h1>
         <form method="POST">
             <?php
             Input("job-name", "Job Name");

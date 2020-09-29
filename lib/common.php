@@ -2,8 +2,8 @@
 
 function Input($name, $label, $type = "text", $value=""){
     echo ("<br/>
-    <label for='$name'>$label:</label>
-    <input type='$type' class='form-control' name='$name' id='$name' value='$value'/>
+    <label class='hidden' for='$name'>$label:</label>
+    <input type='$type' class='form-control' placeholder='$label' name='$name' id='$name' value='$value'/>
     <span id='$name-error' for='$name' class='invalid'></span>
     ");
 }
