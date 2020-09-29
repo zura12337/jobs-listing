@@ -8,15 +8,23 @@ if($_POST){
     $email = $_POST["email"];
     $full_name = $_POST["full_name"];
     $phone_number = $_POST["mobile"];
-    $company_individual = $_POST['company-individual'];    
+    if($_POST['company-individual'] === "individual-check") {
+    $company_individual = 'individual';
+    }else{
+    $company_individual = "company";  
     $imagePath = $_FILES['logo']['tmp_name'];
     $fileNewName = time() . '_' . $_FILES['logo']['name'];
     $fileDestination = "./uploads/".$fileNewName;
+    };
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $error_class = 'invalid';
     if($_POST['pass'] == $_POST['re_pass']){
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, 'image' => $fileDestination);
+            if($company_individual === "company") {
+                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual, 'image' => $fileDestination);
+            }else{
+                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual);
+            }
             $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);
             foreach($data as $key => $value){
@@ -64,7 +72,7 @@ if($_POST){
             echo $usernameExists_error;
             echo "</div>";
             Input("mobile", "Phone Number", "number", $phone_number);
-            if($company_individual === "company-check"){
+            if($company_individual === "company"){
                 Radio("company-individual", "individual-check", "Individual");
                 Radio("company-individual", "company-check", "Company", "checked");
             }else{
@@ -73,9 +81,15 @@ if($_POST){
             }
 
             ?>
-            <div id="image-upload" class=<?php if($company_individual === "individual-check" || $company_individual === null) echo 'hidden' ?>>
+            <div id="image-upload" class=<?php 
+            if($company_individual === "individual" || $company_individual === null){ 
+                echo 'hidden';
+            }
+            else{ 
+                echo "";
+            } ?>>
                 <?php
-                Input("logo", "Company Logo", "file", null, "hidden");
+                Input("logo", "Company Logo", "file");
                 echo $imageError;
                 ?>
             </div>
@@ -86,5 +100,5 @@ if($_POST){
             ?>
         </form>
 </body>
-<script defer src="./js/register.js"></script>
+<script type="module" defer src="./js/register.js"></script>
 </html>
