@@ -1,8 +1,8 @@
 <?php
 
-require_once "lib/protectedRoute.php";
+require_once "lib/protected-route.php";
 require_once "lib/common.php";
-require_once "lib/getUserInfo.php";
+require_once "lib/get-user-info.php";
 
 $error = '';
 if($_POST) {
@@ -16,7 +16,6 @@ if($_POST) {
         $index = count ((array)$data ) + 1;
         $data[$index] = $newJob;
         file_put_contents('database/data.json', json_encode($data));
-        var_dump($newJob);
     }else{
         $error = "<p class='invalid'>Please fill all fields</p>";
     }
@@ -41,7 +40,7 @@ if($_POST) {
         <h1>Create New Job</h1>
         <form method="POST">
             <?php
-            Input("job-name", "Job Name:");
+            Input("job-name", "Job Name");
             TextArea("job-description", "Job Description:");
             Checkbox("published", "Published");
             echo $error;
