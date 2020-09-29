@@ -25,12 +25,12 @@ function NavLink($label, $link){
   </li>");
 }
 
-function TextArea($name, $label){
+function TextArea($name, $label, $value = ""){
     echo ("<label for='$name'>$label</label>
-    <textarea id='$name' class='form-control' name='$name'></textarea>");
+    <textarea id='$name' class='form-control' name='$name'>$value</textarea>");
 }
 
-function Checkbox($name, $label) {
-    echo ("<input id='$name' class='mt-4' type='checkbox' name='$name'/>
+function Checkbox($name, $label, $published = "") {
+    echo ("<input id='$name' class='mt-4' type='checkbox' name='$name' $published/>
     <label for='$name'>$label</label><br />");
 }

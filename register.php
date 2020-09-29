@@ -26,13 +26,11 @@ if($_POST){
                     $allRight = true;
                 }
             }
-                if($_FILES['logo']['size'] >= 200000){
-                    $imageError = "<span class='invalid'>Maximum File size is 2 mb</span>";
-                    $allRight = true;
-                }
-                if(!isset($allRight)){
+
+                if(!$allRight){
                     $data[$email] = $newUser;
                     move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
+                    echo $_FILES['logo']['tmp_name'];
                     file_put_contents('database/users.json', json_encode($data));
                     header("location: login.php");
                 }
@@ -75,7 +73,7 @@ if($_POST){
             }
 
             ?>
-            <div id="image-upload" class=<?php if($company_individual === "individual-check") echo 'hidden' ?>>
+            <div id="image-upload" class=<?php if($company_individual === "individual-check" || $company_individual === null) echo 'hidden' ?>>
                 <?php
                 Input("logo", "Company Logo", "file", null, "hidden");
                 echo $imageError;

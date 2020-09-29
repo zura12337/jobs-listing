@@ -1,5 +1,5 @@
 <?php
-require_once "lib/getUserInfo.php";
+require_once "lib/get-user-info.php";
 ?>
 <!doctype html>
 <html lang="en">
