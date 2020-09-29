@@ -1,4 +1,5 @@
 <?php
+include_once "lib/list-jobs.php";
 
 ?>
 <!doctype html>
@@ -11,6 +12,18 @@
     <title>JobSite</title>
 </head>
 <body>
+<header>
+    <?php
+    require "lib/navbar.php";
+    ?>
+    <h1>Job site</h1>
+</header>
+
+<section>
+    <?php
+    print list_jobs();
+    ?>
+</section>
 
 </body>
 </html>
