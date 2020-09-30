@@ -13,18 +13,19 @@ export function setExtraOption(option, optionName) {
   }
   return elem;
 }
-export function validate(input, label) {
+function validate(input, label) {
   if (input === "") {
     return `Please Enter ${label} field.`;
   } else {
     return null;
   }
 }
-export function removeLastChars(text, number) {
+function removeLastChars(text, number) {
   return text.substring(0, text.length - number);
 }
 
 export function validateInput(name) {
+  console.log(name.value);
   return (name.error.innerHTML = validate(
     name.value,
     removeLastChars(name.label.innerHTML, 1)
