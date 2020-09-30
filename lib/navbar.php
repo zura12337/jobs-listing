@@ -2,6 +2,8 @@
 
 require_once "common.php";
 
+session_start();
+
 if(!empty($_SESSION['SESSION_TOKEN']) && !empty($_COOKIE['SESSION_TOKEN'])){
     $session_token = null;
 }
@@ -17,10 +19,12 @@ if(!empty($_SESSION['SESSION_TOKEN']) && !empty($_COOKIE['SESSION_TOKEN'])){
         if(!empty($_SESSION['SESSION_TOKEN']) || !empty($_COOKIE['SESSION_TOKEN'])){
           require "get-user-info.php";
           ?>
+          <a href="create-new-job.php" class="btn btn-primary mr-5">Add job</a>
           <img src=<?php echo $logo ?> alt='logo' id="navbar-logo"/>
           <?php
           NavLink($fullName, "profile.php");
         }else{
+          echo $_SESSION['SESSION_TOKEN'];
           NavLink("login", "login.php", "far fa-user");
           NavLink("register", "register.php", "fas fa-briefcase");
         }

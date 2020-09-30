@@ -1,5 +1,6 @@
 <?php
 require "lib/get-user-info.php";
+require "lib/protected-route.php";
 
 ?>
 <!doctype html>

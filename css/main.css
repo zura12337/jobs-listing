@@ -19,11 +19,9 @@ body {
   font-size: 14px;
   font-weight: 700;
 }
-
 .hidden {
   display: none !important;
 }
-
 #user-logo {
   width: 150px;
   height: 150px;
@@ -31,7 +29,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   margin: 20px;
 }
-
 .btn-primary {
   background-color: var(--button-primary-color);
   color: white;
@@ -53,7 +50,6 @@ body {
   border: 1px solid var(--button-danger-color) !important;
   color: var(--button-danger-color);
 }
-
 .btn-primary:hover {
   background-color: transparent !important;
   border: 1px solid var(--button-primary-color) !important;
