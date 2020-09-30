@@ -10,7 +10,7 @@ if($_POST) {
     $jobDesc = $_POST['job-description'];
     $published = $_POST['published'];
     if(!empty($jobName) && !empty($jobDesc)){
-        $newJob = array('job-name' => $jobName, 'job-description' => $jobDesc, "published" => $published,"date" => date('m/d/Y H:i:s', time()));
+        $newJob = array('job-name' => $jobName, 'job-description' => $jobDesc, "published" => $published,"creator-name" => $creatorName, "creator-email" => $creatorEmail,  "date" => date('m/d/Y H:i:s', time()));
         $json = file_get_contents('database/data.json');
         $data = json_decode($json, true);
         $data[$id] = $newJob;

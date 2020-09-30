@@ -13,7 +13,9 @@ function getUserInfo($userEmail) {
             }else{
                 $logo = "https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png";
             }
-            return $logo;
+            $user['fullName'] = $fullName;
+            $user['logo'] = $logo;
+            return $user;
             break;
         }
     }

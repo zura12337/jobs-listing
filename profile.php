@@ -1,6 +1,7 @@
 <?php
-require "lib/get-user-info.php";
+require_once "lib/get-user-info.php";
 require "lib/protected-route.php";
+require "lib/list-jobs.php";
 
 ?>
 <!doctype html>
@@ -16,18 +17,21 @@ require "lib/protected-route.php";
 <?php require_once "lib/navbar.php"; ?>
 
 <div class="container mt-3">
-    <div>
-        <p>Hello, <?php echo $fullName;?></p>
-    </div>
+        <div>
+            <p>Hello, <?php echo $fullName;?></p>
+        </div>
 
-    <div class="column">
-        <img src=<?php echo $logo?> id="user-logo" />
-        <p class="col-3">Email: <?php echo $email; ?></p>
-        <p class="col-3">Phone: <?php echo $phone; ?></p>
-    </div>
+        <div class="column">
+            <img src=<?php echo $logo?> id="user-logo" />
+            <p class="col-3">Email: <?php echo $email; ?></p>
+            <p class="col-3">Phone: <?php echo $phone; ?></p>
+        </div>
 
-    <a class="btn btn-primary" href="edit-profile.php">Edit profile</a>
-    <a class="btn btn-danger" href="logout.php">Logout</a>
+        <a class="btn btn-primary" href="edit-profile.php">Edit profile</a>
+        <a class="btn btn-danger" href="logout.php">Logout</a>
+        <div class="jobs mt-5">
+            <?php print list_jobs($email); ?> 
+        </div>
 </div>
 
 

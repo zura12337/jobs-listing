@@ -3,9 +3,9 @@
 function Input($name, $label, $type = "text", $value=""){
     ?>
     <br/>
-    <label class='hidden' for='<?php echo $name ?>'><?php echo $label?>:</label>
+    <label for='<?php echo $name ?>'><?php echo $label?>:</label>
     <input type='<?php echo $type?>' class='form-control' placeholder='<?php echo $label ?>' name='<?php echo $name ?>' id='<?php echo $name?>' value='<?php echo $value?>'/>
-    <span id='<?php echo $name-error ?>' for='<?php echo $name ?>' class='invalid'></span>
+    <span id='<?php echo $name ?>-error' for='<?php echo $name ?>' class='invalid'></span>
     <?php
 }
 
@@ -13,7 +13,7 @@ function Radio($name, $id, $label, $checked = ""){
     ?>
     <div class='form-check mt-3'>
     <label for='<?php echo $id ?>'><?php echo $label ?></label>
-    <input class='form-check-label' type='radio' name='<?php echo $name?>' id='<?php echo $id ?>' value='<?php echo $id ?>' <?php $checked?>>
+    <input class='form-check-label' type='radio' name='<?php echo $name?>' id='<?php echo $id ?>' value='<?php echo $id ?>' <?php echo $checked?>>
     </div>
     <?php    
 }

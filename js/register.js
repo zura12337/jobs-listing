@@ -22,6 +22,7 @@ radios[0].addEventListener("change", function (event) {
   imageUpload.classList.toggle("hidden");
 });
 
+console.log(email.error);
 form.addEventListener("submit", (event) => {
   validateInput(fullName);
   validateInput(email);

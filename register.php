@@ -4,18 +4,19 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
+$company_individual = 'individual';
 
 if($_POST){
     $email = $_POST["email"];
     $full_name = $_POST["full_name"];
     $phone_number = $_POST["mobile"];
     if($_POST['company-individual'] === "individual-check") {
-    $company_individual = 'individual';
+        $company_individual = 'individual';
     }else{
-    $company_individual = "company";  
-    $imagePath = $_FILES['logo']['tmp_name'];
-    $fileNewName = time() . '_' . $_FILES['logo']['name'];
-    $fileDestination = "./uploads/".$fileNewName;
+        $company_individual = "company";
+        $imagePath = $_FILES['logo']['tmp_name'];
+        $fileNewName = time() . '_' . $_FILES['logo']['name'];
+        $fileDestination = "./uploads/".$fileNewName;
     };
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
     $error_class = 'invalid';
@@ -102,5 +103,5 @@ if($_POST){
             </form>
         </div>
 </body>
-<script type="module" defer src="./js/register.js"></script>
+<script type="module" defer src="js/register.js"></script>
 </html>

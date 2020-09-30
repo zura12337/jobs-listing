@@ -17,12 +17,14 @@ function list_jobs($user_mail = null)
     foreach ($data as $item_id => $content) {
         if (!isset($user_mail) || $content["creator-email"] == $user_mail) {
             $date = explode(' ', $content["date"])[0];
-            $logo =  getUserInfo($content['creator-email']);
+            $user =  getUserInfo($content['creator-email']);
+            if($user_mail) $editButton =  "<td><a href='edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
             $answer .= "<tbody>
                             <tr>
                                 <td>{$content["job-name"]}</td>
-                                <td><img src={$logo} alt='logo' id='navbar-logo'/>{$content["creator-name"]}</td>
+                                <td><img src={$user['logo']} alt='logo' id='navbar-logo'/> " . $user['fullName'] . "</td>
                                 <td>{$date}</td>
+                                $editButton
                             </tr>
                         </tbody>
                         ";
