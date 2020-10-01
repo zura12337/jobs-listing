@@ -19,11 +19,12 @@ function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
     foreach ($data as $item_id => $content) {
         if (!isset($user_mail) || $content["creator-email"] == $user_mail) {
             $data_count += 1;
+            $creator_email = $content["creator-email"];
             if (!$count_pages && ceil($data_count / 20) == $page_num) {
                 $answer .= "<tbody>
                             <tr>
-                                <td>{$content["job-name"]}</td>
-                                <td><img src={$user['logo']} alt='logo' id='navbar-logo'/> " . $user['fullName'] . "</td>
+                                <td><a href='?job-id=".$item_id."'>{$content["job-name"]}</a></td>
+                                <td><a href='?profile-id=.$creator_email.'><img src={$user['logo']} alt='logo' id='navbar-logo'/> " . $user['fullName'] . "</a></td>
                                 <td>{$date}</td>
                                 $editButton
                             </tr>
