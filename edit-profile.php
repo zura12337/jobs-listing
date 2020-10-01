@@ -12,6 +12,7 @@ if($_POST){
         if($_FILES['logo']['name']){
             $imagePath = $_FILES['logo']['tmp_name'];
             $fileNewName = time() . '_' . $_FILES['logo']['name'];
+                $fileNewName = strtr($fileNewName, ' ', '_');
             $logo = "./uploads/".$fileNewName;
         }
     };
@@ -57,7 +58,7 @@ if($_POST){
     require "lib/navbar.php";
 ?>
     <div class="container">
-        <h1 id="header">Edit Profile</h1>
+        <h1 class="header">Edit Profile</h1>
         <form id="edit_profile_form" action="edit-profile.php" method="post" enctype="multipart/form-data">
             <?php
             Input("full_name", "Full Name", "text", $fullName);

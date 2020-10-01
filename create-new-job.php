@@ -16,6 +16,7 @@ if($_POST) {
         $index = count ((array)$data ) + 1;
         $data[$index] = $newJob;
         file_put_contents('database/data.json', json_encode($data));
+        header("Location: index.php");
     }else{
         $error = "<p class='invalid'>Please fill all fields</p>";
     }
@@ -37,7 +38,7 @@ if($_POST) {
     require "lib/navbar.php";
     ?>
     <div class="container mt-3">
-        <h1 id="header">Create New Job</h1>
+        <h1 class="header">Create New Job</h1>
         <form method="POST">
             <?php
             Input("job-name", "Job Name");

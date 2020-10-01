@@ -1,4 +1,5 @@
 <?php
+
 include_once "lib/list-jobs.php";
 
 $page_count = list_jobs(1, $user_mail = null, $count = true);
@@ -27,7 +28,7 @@ if ($_GET){
     ?>
 </header>
 <div class="container mt-3">
-    <h1 id="header">Job site</h1>
+    <h1 class="header">Job site</h1>
     <section class="mt-5">
             <?php
             for ($i = 1; $i <= $page_count; $i++ ) {
