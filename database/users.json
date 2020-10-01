@@ -1,1 +1,24 @@
-{"zura.kurta@gmail.com":{"full_name":"\u10d6\u10e3\u10e0\u10d0","phone":"598770988","password":"$2y$10$91Htd5r94EmQzf0QVyGHa.0gnPShjzhOx4hkjFjnvLATffpOGLomu","company_individual":"company","image":".\/uploads\/1601472206_52924227_2337575386479275_2964684322335883264_o.png"},"z.kurtanidze@omedia.ge":{"full_name":"Zura Kurtaaaa ","phone":"19023810","password":"$2y$10$ydIk37Dq5qYtpK\/wERJ.teqc\/14W5XuBqdhaHs99\/VEbY7ahCngWi","company_individual":"company","image":".\/uploads\/1601392004_65318098_10156700500364261_7498001240744263680_o.png","SESSION_TOKEN":"k+dT7i6J2shAlWUmRLQSzexZvDZ9xUID"},"zura@gmail.com":{"full_name":"ads","phone":"982108390","password":"$2y$10$LfWIm2sXdcwP56sej5LtNeXOYyk\/I4AHelPhS7IqTAj3Sxh4vfkHe","company_individual":"company","image":".\/uploads\/1601390864_65318098_10156700500364261_7498001240744263680_o.png"}}
+{
+  "zura.kurta@gmail.com": {
+    "full_name": "\u10d6\u10e3\u10e0\u10d0",
+    "phone": "598770988",
+    "password": "$2y$10$91Htd5r94EmQzf0QVyGHa.0gnPShjzhOx4hkjFjnvLATffpOGLomu",
+    "company_individual": "company",
+    "image": ".\/uploads\/1601472206_52924227_2337575386479275_2964684322335883264_o.png"
+  },
+  "z.kurtanidze@omedia.ge": {
+    "full_name": "Zura Kurtaaaa ",
+    "phone": "19023810",
+    "password": "$2y$10$ydIk37Dq5qYtpK\/wERJ.teqc\/14W5XuBqdhaHs99\/VEbY7ahCngWi",
+    "company_individual": "company",
+    "image": ".\/uploads\/1601392004_65318098_10156700500364261_7498001240744263680_o.png",
+    "SESSION_TOKEN": "k+dT7i6J2shAlWUmRLQSzexZvDZ9xUID"
+  },
+  "zura@gmail.com": {
+    "full_name": "ads",
+    "phone": "982108390",
+    "password": "$2y$10$LfWIm2sXdcwP56sej5LtNeXOYyk\/I4AHelPhS7IqTAj3Sxh4vfkHe",
+    "company_individual": "company",
+    "image": ".\/uploads\/1601390864_65318098_10156700500364261_7498001240744263680_o.png"
+  }
+}
