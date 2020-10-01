@@ -3,6 +3,15 @@ require_once "lib/get-user-info.php";
 require "lib/protected-route.php";
 require "lib/list-jobs.php";
 
+
+$page_count = list_jobs(1, $user_mail = $email, $count = true);
+
+if ($_GET){
+    $content = list_jobs( $_GET["page"], $user_mail = $email, $count = false);
+} else {
+    $content = list_jobs(1, $user_mail = $email, $count = false);
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -30,7 +39,31 @@ require "lib/list-jobs.php";
         <a class="btn btn-primary" href="edit-profile.php">Edit profile</a>
         <a class="btn btn-danger" href="logout.php">Logout</a>
         <div class="jobs mt-5">
-            <?php print list_jobs($email); ?> 
+            <?php 
+            ?>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            <?php
+            for ($i = 1; $i <= $page_count; $i++ ) {
+                ?>
+                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                <?php
+            }
+            ?>
+            </ul>
+            <?php
+            echo $content; 
+            ?> 
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            <?php
+            for ($i = 1; $i <= $page_count; $i++ ) {
+                ?>
+                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                <?php
+            }
+            ?>
+            </ul>
         </div>
 </div>
 

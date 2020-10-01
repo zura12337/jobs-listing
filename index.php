@@ -7,7 +7,6 @@ $page_count = list_jobs(1, $user_mail = null, $count = true);
 if ($_GET){
     $content = list_jobs( $_GET["page"], $user_mail = null, $count = false);
 } else {
-    echo "123";
     $content = list_jobs(1, $user_mail = null, $count = false);
 }
 
@@ -30,17 +29,30 @@ if ($_GET){
 <div class="container mt-3">
     <h1 class="header">Job site</h1>
     <section class="mt-5">
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
             <?php
             for ($i = 1; $i <= $page_count; $i++ ) {
-                print "<a href='/?page=".$i."'>".$i."</a> ";
-            }
-
-            echo $content;
-
-            for ($i = 1; $i <= $page_count; $i++ ) {
-                print "<a href='/?page=".$i."'>".$i."</a> ";
+                ?>
+                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                <?php
             }
             ?>
+            </ul>
+            <?php
+            echo $content;
+            ?>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+            <?php
+            for ($i = 1; $i <= $page_count; $i++ ) {
+                ?>
+                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                <?php
+            }
+            ?>
+            </ul>
+        </nav>
     </section>
 
 </div>

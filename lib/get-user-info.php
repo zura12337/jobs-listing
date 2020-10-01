@@ -10,11 +10,7 @@ foreach($data as $email => $item){
             $fullName = $item['full_name'];
             $phone = $item['phone'];
             $company_individual = $item['company_individual'];
-            if($company_individual === "company"){
-                $logo = $item['image'];
-            }else{
-                $logo = "https://www.xovi.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png";
-            }
+            $logo = $item['image'];
             break;
         }
 

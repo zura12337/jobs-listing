@@ -26,7 +26,7 @@ if($_POST){
             if($company_individual === "company") {
                 $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual, 'image' => $fileDestination);
             }else{
-                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual);
+                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual, 'image' => './uploads/default-user-image.png');
             }
             $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);

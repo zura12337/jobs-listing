@@ -29,7 +29,7 @@ if($_POST){
     if($company_individual === "company") {
         $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual,  'image' => $logo, 'SESSION_TOKEN' => $session_token);
     }else{
-        $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password,"company_individual" => $company_individual, 'SESSION_TOKEN' => $session_token);
+        $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password,"company_individual" => $company_individual, 'image' => './uploads/default-user-image.png' , 'SESSION_TOKEN' => $session_token);
     }
     $data[$email] = $newUser;
     if($_FILES['logo']['name']){
