@@ -22,7 +22,7 @@ require "lib/list-jobs.php";
         </div>
 
         <div class="column">
-            <img src=<?php echo $logo?> id="user-logo" />
+            <img src=<?php echo $logo?> class="logo" />
             <p class="col-3">Email: <?php echo $email; ?></p>
             <p class="col-3">Phone: <?php echo $phone; ?></p>
         </div>

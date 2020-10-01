@@ -4,6 +4,15 @@ require_once "lib/protected-route.php";
 require_once "lib/common.php";
 require_once "lib/get-job-info.php";
 
+$data = getJobInfo(true);
+$jobName = $data['job-name'];
+$jobDesc = $data['job-description'];
+$data['published'] === 'on' ? $published = "checked" : $published = null;
+$creatorName = $data['creator-name'];
+$creatorEmail = $data['creator-email'];
+$date = $data['date'];
+$id = $data['id'];
+
 $error = '';
 if($_POST) {
     $jobName = $_POST['job-name'];
@@ -15,6 +24,7 @@ if($_POST) {
         $data = json_decode($json, true);
         $data[$id] = $newJob;
         file_put_contents('database/data.json', json_encode($data));
+        header("Location: ../index.php");
     }else{
         $error = "<p class='invalid'>Please fill all fields</p>";
     }
@@ -36,28 +46,11 @@ if(!empty($_SESSION['SESSION_TOKEN']) && !empty($_COOKIE['SESSION_TOKEN'])){
     <title>Edit job</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="container">
-            <a class='navbar-brand' href="../index.php">Jobs</a>
-            <ul class="navbar-nav ml-auto">
-            <?php
-            if(!empty($_SESSION['SESSION_TOKEN']) || !empty($_COOKIE['SESSION_TOKEN'])){
-            ?>
-            <img src=<?php echo '.'.$logo ?> alt='logo' id="navbar-logo"/>
-            <?php
-            NavLink($fullName, "../profile.php");
-            }else{
-            NavLink("login", "../login.php", "far fa-user");
-            NavLink("register", "../register.php", "fas fa-briefcase");
-            }
-            ?>
-        </ul>
-    </div>
-    </div>
-    </nav>
+    <?php
+        require "lib/navbar.php";
+    ?>
     <div class="container mt-3">
-        <h1 id="header">Edit Job</h1>
+        <h1 class="header">Edit Job</h1>
         <form method="POST">
             <?php
             Input("job-name", "Job Name", 'text', $jobName);
