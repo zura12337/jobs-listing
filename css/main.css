@@ -45,12 +45,14 @@ body {
   padding-right: 20px !important;
   border: 1px solid var(--button-danger-color);
 }
-.btn-danger:hover {
+.btn-danger:hover,
+.btn-danger:active {
   background-color: transparent !important;
   border: 1px solid var(--button-danger-color) !important;
   color: var(--button-danger-color);
 }
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:active {
   background-color: transparent !important;
   border: 1px solid var(--button-primary-color) !important;
   color: var(--button-primary-color);
