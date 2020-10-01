@@ -18,16 +18,31 @@ function list_jobs($user_mail = null)
         if (!isset($user_mail) || $content["creator-email"] == $user_mail) {
             $date = explode(' ', $content["date"])[0];
             $user =  getUserInfo($content['creator-email']);
-            if($user_mail) $editButton =  "<td><a href='edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
-            $answer .= "<tbody>
-                            <tr>
-                                <td>{$content["job-name"]}</td>
-                                <td><img src={$user['logo']} alt='logo' id='navbar-logo'/> " . $user['fullName'] . "</td>
-                                <td>{$date}</td>
-                                $editButton
-                            </tr>
-                        </tbody>
-                        ";
+            if(!$user_mail){
+                if(!empty($content["published"])){
+                    if($user_mail) $editButton =  "<td><a href='edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
+                    $answer .= "<tbody>
+                                    <tr>
+                                        <td><a href='job.php/?jobId=$item_id'>{$content["job-name"]}</a></td>
+                                        <td><img src={$user['logo']} alt='logo' class='logo logo-sm'/> " . $user['fullName'] . "</td>
+                                        <td>{$date}</td>
+                                        $editButton
+                                    </tr>
+                                </tbody>
+                                ";
+                };
+            }else{
+                if($user_mail) $editButton =  "<td><a href='edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
+                    $answer .= "<tbody>
+                                    <tr>
+                                        <td><a href='job.php/?jobId=$item_id'>{$content["job-name"]}</a></td>
+                                        <td><img src={$user['logo']} alt='logo' class='logo logo-sm'/> " . $user['fullName'] . "</td>
+                                        <td>{$date}</td>
+                                        $editButton
+                                    </tr>
+                                </tbody>
+                                ";
+            }
         }
     }
     return $answer . "</table>";

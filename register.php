@@ -66,7 +66,7 @@ if($_POST){
 ?>
         <div class="container ">
             <form id="register_form" class="register-form" action="register.php" method="post" enctype="multipart/form-data">
-            <h1 id="header">Register</h1>
+            <h1 class="header">Register</h1>
             <?php
                 Input("full_name", "Full Name", "text", $full_name);
                 echo "<div class='$mail_error_class'>";

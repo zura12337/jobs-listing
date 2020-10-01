@@ -1,4 +1,5 @@
 <?php
+
 include_once "lib/list-jobs.php";
 
 ?>
@@ -18,7 +19,7 @@ include_once "lib/list-jobs.php";
     ?>
 </header>
 <div class="container mt-3">
-    <h1 id="header">Job site</h1>
+    <h1 class="header">Job site</h1>
     <section class="mt-5">
         <?php
             print list_jobs();
