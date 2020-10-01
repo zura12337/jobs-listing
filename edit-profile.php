@@ -12,6 +12,7 @@ if($_POST){
         if($_FILES['logo']['name']){
             $imagePath = $_FILES['logo']['tmp_name'];
             $fileNewName = time() . '_' . $_FILES['logo']['name'];
+                $fileNewName = strtr($fileNewName, ' ', '_');
             $logo = "./uploads/".$fileNewName;
         }
     };

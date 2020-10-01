@@ -16,6 +16,7 @@ if($_POST){
         $company_individual = "company";
         $imagePath = $_FILES['logo']['tmp_name'];
         $fileNewName = time() . '_' . $_FILES['logo']['name'];
+        $fileNewName = strtr($fileNewName, ' ', '_');
         $fileDestination = "./uploads/".$fileNewName;
     };
     $password = password_hash($_POST["pass"], PASSWORD_DEFAULT);
@@ -40,7 +41,6 @@ if($_POST){
                 if(!$allRight){
                     $data[$email] = $newUser;
                     move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
-                    echo $_FILES['logo']['tmp_name'];
                     file_put_contents('database/users.json', json_encode($data));
                     header("location: login.php");
                 }
