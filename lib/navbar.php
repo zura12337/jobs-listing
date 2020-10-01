@@ -14,7 +14,7 @@ $dir = str_replace("/var/www/html", "", getcwd());
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarNav">
     <div class="container">
-      <a class='navbar-brand' href="index.php">Jobs</a>
+      <a class='navbar-brand' href="<?php echo $dir ?>/index.php">Jobs</a>
       <ul class="navbar-nav ml-auto">
         <?php
         if(!empty($_SESSION['SESSION_TOKEN']) || !empty($_COOKIE['SESSION_TOKEN'])){

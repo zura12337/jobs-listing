@@ -1,7 +1,7 @@
 
 <?php
 
-require "get-user-info-by-email.php";
+require_once "get-user-info-by-email.php";
 
 
 function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
@@ -32,7 +32,7 @@ function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
                 $answer .= "<tbody>
                             <tr>
                                 <td><a href='job.php/?jobId=".$item_id."'>{$content["job-name"]}</a></td>
-                                <td><a href='?profile-id=.$creator_email.'><img src='$dir$jobLogo' alt='logo' class='logo logo-sm'/> " . $user['fullName'] . "</a></td>
+                                <td><a href='user.php/?profileId=$creator_email'><img src='$dir$jobLogo' alt='logo' class='logo logo-sm'/> " . $user['fullName'] . "</a></td>
                                 <td>{$date}</td>
                                 $editButton
                             </tr>

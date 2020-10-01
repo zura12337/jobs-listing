@@ -1,7 +1,7 @@
 <?php
 require_once "lib/get-user-info.php";
-require "lib/protected-route.php";
-require "lib/list-jobs.php";
+require_once "lib/protected-route.php";
+require_once "lib/list-jobs.php";
 
 
 $page_count = list_jobs(1, $user_mail = $email, $count = true);
