@@ -1,13 +1,14 @@
 <?php
 
+require "lib/get-user-info.php";
 include_once "lib/list-jobs.php";
 
-$page_count = list_jobs(1, $user_mail = null, $count = true);
+$page_count = list_jobs(1, $user_mail = null, $count = true, $isAdmin);
 
 if ($_GET){
-    $content = list_jobs( $_GET["page"], $user_mail = null, $count = false);
+    $content = list_jobs( $_GET["page"], $user_mail = null, $count = false, $isAdmin);
 } else {
-    $content = list_jobs(1, $user_mail = null, $count = false);
+    $content = list_jobs(1, $user_mail = null, $count = false, $isAdmin);
 }
 
 ?>

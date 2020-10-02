@@ -4,7 +4,8 @@
 require_once "get-user-info-by-email.php";
 
 
-function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
+
+function list_jobs($page_num = 1, $user_mail = null, $count_pages = false, $isAdmin = null)
 {   
     $dir = str_replace("/var/www/html", "", getcwd());
     $json = file_get_contents(getcwd().'/database/data.json');
@@ -28,7 +29,7 @@ function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
                 $jobLogo = $user['logo'];
                 $jobLogo[0] = "/";
                 $date = explode(' ', $content["date"])[0];
-                if($user_mail) {
+                if($user_mail || $isAdmin) {
                     $editButton =  "<td><a href='$dir/edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
                     $deleteButton = "<td><a class='btn btn-danger btn-sm' href='$dir/delete-job.php/?jobId=$item_id'>Delete</a></td>";
                 }
