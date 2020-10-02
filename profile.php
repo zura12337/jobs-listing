@@ -4,12 +4,12 @@ require_once "lib/protected-route.php";
 require_once "lib/list-jobs.php";
 
 
-$page_count = list_jobs(1, $user_mail = $email, $count = true);
+$page_count = list_jobs(1, $user_mail = $email, $count = true, true, $protected = true);
 
 if ($_GET){
-    $content = list_jobs( $_GET["page"], $user_mail = $email, $count = false);
+    $content = list_jobs( $_GET["page"], $user_mail = $email, $count = false, true,  $protected = true);
 } else {
-    $content = list_jobs(1, $user_mail = $email, $count = false);
+    $content = list_jobs(1, $user_mail = $email, $count = false, true, $protected = true);
 }
 
 ?>
