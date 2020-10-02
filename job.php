@@ -45,7 +45,7 @@ $dir = str_replace("/var/www/html", "", getcwd());
                     <p>Job Info: <p><?php echo $jobDesc ?></p></p>
                     <p>Created By: <?php echo $creatorName ?></p>
                     <p>Contact Email: <?php echo $creatorEmail ?></p>
-                    <p>Contact Phone: <?php echo $phone ?></p>
+                    <p>Contact Phone: <?php echo $user['phone'] ?></p>
                 </div>
             </div>
         </div>

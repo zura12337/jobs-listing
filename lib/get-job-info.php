@@ -10,9 +10,6 @@ function getJobInfo($protected = false){
         $jobId = $_GET["jobId"];
         $json = file_get_contents('database/data.json');
         $data = json_decode($json, true);
-        if($jobId > count($data)){
-            header("Location: ../not-found.php");
-        }
         foreach($data as $id => $item){
             if($jobId == $id){
                 $item['id'] = $id;

@@ -28,13 +28,17 @@ function list_jobs($page_num = 1, $user_mail = null, $count_pages = false)
                 $jobLogo = $user['logo'];
                 $jobLogo[0] = "/";
                 $date = explode(' ', $content["date"])[0];
-                if($user_mail) $editButton =  "<td><a href='edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
+                if($user_mail) {
+                    $editButton =  "<td><a href='$dir/edit-job.php/?jobId=$item_id' class='btn btn-primary btn-sm'>Edit</a></td>";
+                    $deleteButton = "<td><a class='btn btn-danger btn-sm' href='$dir/delete-job.php/?jobId=$item_id'>Delete</a></td>";
+                }
                 $answer .= "<tbody>
                             <tr>
-                                <td><a href='job.php/?jobId=".$item_id."'>{$content["job-name"]}</a></td>
+                                <td><a href='$dir/job.php/?jobId=".$item_id."'>{$content["job-name"]}</a></td>
                                 <td><a href='user.php/?profileId=$creator_email'><img src='$dir$jobLogo' alt='logo' class='logo logo-sm'/> " . $user['fullName'] . "</a></td>
                                 <td>{$date}</td>
                                 $editButton
+                                $deleteButton
                             </tr>
                         </tbody>
                         ";
