@@ -33,10 +33,12 @@ if ($_GET){
             <nav aria-label="Page navigation example">
             <ul class="pagination">
             <?php
-            for ($i = 1; $i <= $page_count; $i++ ) {
-                ?>
-                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
-                <?php
+            if($page_count > 1){
+                for ($i = 1; $i <= $page_count; $i++ ) {
+                    ?>
+                    <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                    <?php
+                }
             }
             ?>
             </ul>
@@ -46,10 +48,12 @@ if ($_GET){
             <nav aria-label="Page navigation example">
                 <ul class="pagination">
             <?php
-            for ($i = 1; $i <= $page_count; $i++ ) {
-                ?>
-                <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
-                <?php
+            if($page_count > 1){
+                for ($i = 1; $i <= $page_count; $i++ ) {
+                    ?>
+                    <li class='page-item'><a href='?page=<?php echo $i ?>' class='page-link' ><?php echo $i?></a></li>
+                    <?php
+                }
             }
             ?>
             </ul>

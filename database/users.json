@@ -1,18 +1,1 @@
-{
-  "zuraa@gmail.com": {
-    "full_name": "zura",
-    "phone": "598770988",
-    "password": "$2y$10$tg/ho8hSFYyi4CJ7fHH0i.Zx3SXnXT18TpZz/wjVy1XX651yGwUb.",
-    "company_individual": "company",
-    "image": "./uploads/1601587412_65318098_10156700500364261_7498001240744263680_o.png"
-  },
-  "zura.kurta@gmail.com": {
-    "full_name": "Zura Kurtanidze",
-    "phone": "598770988",
-    "password": "$2y$10$WzQ5Nncmif7bY6APtgBEVOLeufLSXLHTTk3GW6re9cdUSQbnsECkG",
-    "company_individual": "company",
-    "image": "./uploads/1601589868_52924227_2337575386479275_2964684322335883264_o.png",
-    "is_admin": true,
-    "SESSION_TOKEN": "p1njqHkIO+2oofdzoxuh/Ioxuz3m3qpM"
-  }
-}
+{"zuraa@gmail.com":{"full_name":"zura","phone":"598770988","password":"$2y$10$tg\/ho8hSFYyi4CJ7fHH0i.Zx3SXnXT18TpZz\/wjVy1XX651yGwUb.","company_individual":"company","image":".\/uploads\/1601587412_65318098_10156700500364261_7498001240744263680_o.png"},"zura.kurta@gmail.com":{"full_name":"Zura Kurtanidze","phone":"598770988","password":"$2y$10$WzQ5Nncmif7bY6APtgBEVOLeufLSXLHTTk3GW6re9cdUSQbnsECkG","company_individual":"company","image":".\/uploads\/1601589868_52924227_2337575386479275_2964684322335883264_o.png","is_admin":true,"SESSION_TOKEN":"FtCCCpzIpKcPIacw4IdJOZoVk3DTQ25+"}}
