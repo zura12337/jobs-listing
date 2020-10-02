@@ -21,7 +21,7 @@ function list_jobs($page_num = 1, $user_mail = null, $count_pages = false, $isAd
                 </thead>";
 
     foreach ($data as $item_id => $content) {
-        if(!$protected && !isset($content['published'])){
+        if(!$isAdmin && !$protected && !isset($content['published'])){
             continue;
         }
         if (!isset($user_mail) || $content["creator-email"] == $user_mail) {
