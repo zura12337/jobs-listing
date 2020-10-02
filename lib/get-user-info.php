@@ -11,6 +11,9 @@ foreach($data as $email => $item){
             $phone = $item['phone'];
             $company_individual = $item['company_individual'];
             $logo = $item['image'];
+            if($item['is_admin']){
+                $isAdmin = true;
+            }
             break;
         }
 

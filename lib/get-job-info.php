@@ -1,8 +1,5 @@
 <?php
 
-// ini_set('display_errors', '1');
-// ini_set('display_startup_errors', '1');
-// error_reporting(E_ALL);
 
 function getJobInfo($protected = false){
     require "get-user-info.php";
@@ -14,7 +11,7 @@ function getJobInfo($protected = false){
             if($jobId == $id){
                 $item['id'] = $id;
                 if($protected == true){
-                    if($item['creator-email'] === $email){
+                    if($item['creator-email'] === $email || $isAdmin){
                         return $item;
                     }else{
                         header("Location: ../not-found.php");
