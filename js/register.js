@@ -5,6 +5,8 @@ var email = document.getElementById("email");
 var mobile = document.getElementById("mobile");
 var radios = document.getElementsByName("company-individual");
 var logo = document.getElementById("logo");
+var previewBig = document.getElementById('logo-preview-big');
+let previewSm = document.getElementById('logo-preview-sm');
 var imageUpload = document.getElementById("image-upload");
 var password = document.getElementById("pass");
 var repeatPassword = document.getElementById("re_pass");
@@ -22,39 +24,59 @@ radios[0].addEventListener("change", function (event) {
   imageUpload.classList.toggle("hidden");
 });
 
-console.log(email.error);
+logo.onchange = function() {
+  if(logo.files.length > 0){
+    let src = URL.createObjectURL(logo.files[0]);
+    previewSm.src = src;
+    previewSm.classList.remove('hidden');
+    previewBig.src = src;
+    previewBig.classList.remove('hidden');
+  }
+}
+
+
 form.addEventListener("submit", (event) => {
-  validateInput(fullName);
-  validateInput(email);
-  if (mobile.value.length <= 7) {
-    mobile.error.innerHTML = "Phone number should contain at least 8 numbers";
-    event.preventDefault();
-  } else {
-    mobile.error.innerHTML = "";
-  }
-  if (radios[1].checked) {
-    validateInput(logo);
-  }
-  validateInput(password);
-  var passPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-  if (!passPattern.test(password.value)) {
-    password.error.innerHTML =
-      "Password should contain at least 8 characters and 1 uppercase";
-    event.preventDefault();
-  } else {
-    password.error.innerHTML = "";
-  }
-  if (password.value !== repeatPassword.value) {
-    repeatPassword.error.innerHTML = "Passwords don't match";
-    event.preventDefault();
-  } else {
-    repeatPassword.error.innerHTML = "";
-  }
-  if (
-    validateInput(fullName) ||
-    validateInput(email) ||
-    validateInput(password)
-  ) {
-    event.preventDefault();
-  }
+  // validateInput(fullName);
+  // validateInput(email);
+  // if (mobile.value.length <= 7) {
+  //   mobile.error.innerHTML = "Phone number should contain at least 8 numbers";
+  //   event.preventDefault();
+  // } else {
+  //   mobile.error.innerHTML = "";
+  // }
+  // if (radios[1].checked) {
+  //   validateInput(logo);
+  // }
+  // validateInput(password);
+  // var passPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  // if (!passPattern.test(password.value)) {
+  //   password.error.innerHTML =
+  //     "Password should contain at least 8 characters and 1 uppercase";
+  //   event.preventDefault();
+  // } else {
+  //   password.error.innerHTML = "";
+  // }
+  // if (password.value !== repeatPassword.value) {
+  //   repeatPassword.error.innerHTML = "Passwords don't match";
+  //   event.preventDefault();
+  // } else {
+  //   repeatPassword.error.innerHTML = "";
+  // }
+  // if (
+  //   validateInput(fullName) ||
+  //   validateInput(email) ||
+  //   validateInput(password)
+  // ) {
+  //   event.preventDefault();
+  // }
 });
+
+function readURL(input){
+  if(input.files && input.files[0]) {
+    let reader = new FileReader();
+
+    reader.addEventListener('onload', function(e){
+      console.log(e);
+    });
+  }
+}
