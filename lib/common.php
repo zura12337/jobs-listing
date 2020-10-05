@@ -3,7 +3,7 @@
 function Input($name, $label, $type = "text", $value=""){
     ?>
     <br/>
-    <label for='<?php echo $name ?>'><?php echo $label?>:</label>
+    <label class='hidden' for='<?php echo $name ?>'><?php echo $label?>:</label>
     <input type='<?php echo $type?>' class='form-control' placeholder='<?php echo $label ?>' name='<?php echo $name ?>' id='<?php echo $name?>' value='<?php echo $value?>'/>
     <span id='<?php echo $name ?>-error' for='<?php echo $name ?>' class='invalid'></span>
     <?php
