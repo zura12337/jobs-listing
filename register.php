@@ -90,8 +90,16 @@ require "lib/navbar.php";
             Input("logo", "Company Logo", "file");
             echo $imageError;
             ?>
-            <img src="" alt="logo" class="logo hidden" id="logo-preview-big"/>
-            <img src="" alt="logo" class="logo logo-sm hidden" id="logo-preview-sm"/>
+            <div class="row hidden" id="logo-preview">
+                <div class="column">
+                    <img src="" alt="logo" class="logo" id="logo-preview-big"/>
+                    <p class="ml-4 small-text">Big Preview</p>
+                </div>
+                <div class="column">
+                    <img src="" alt="logo" class="logo logo-sm mt-4" id="logo-preview-sm"/>
+                    <p class="small-text">Small Preview</p>
+                </div>
+            </div>
         </div>
         <?php
         Input("pass", "Password", "password");

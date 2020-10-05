@@ -127,3 +127,9 @@ td img {
   padding: 20px 50px;
   margin-bottom: 15px;
 }
+
+.small-text{
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: 10px;
+}
