@@ -7,8 +7,10 @@ require_once "get-user-info-by-email.php";
 function list_jobs($page_num = 1, $user_mail = null, $count_pages = false, $isAdmin = null, $protected = false)
 {   
     $dir = str_replace("/var/www/html", "", getcwd());
+//
     $json = file_get_contents(getcwd().'/database/data.json');
     $data = json_decode($json, true);
+//
     $data = array_reverse($data, true);
     $data_count = 0;
     $answer = "<table class='table'>
