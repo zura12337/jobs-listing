@@ -1,16 +1,17 @@
 <?php
 
+include_once 'lib/sql-info.php';
 
-$company_individual = 'individual';
+$is_company = 'individual';
 
 if ($_POST) {
     $email = $_POST["email"];
     $full_name = $_POST["full_name"];
     $phone_number = $_POST["mobile"];
     if ($_POST['company-individual'] === "individual-check") {
-        $company_individual = 'individual';
+        $is_company = true;
     } else {
-        $company_individual = "company";
+        $is_company = false;
         $imagePath = $_FILES['logo']['tmp_name'];
         $fileNewName = time() . '_' . $_FILES['logo']['name'];
         $fileNewName = strtr($fileNewName, ' ', '_');
@@ -20,27 +21,72 @@ if ($_POST) {
     $error_class = 'invalid';
     if ($_POST['pass'] == $_POST['re_pass']) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            if ($company_individual === "company") {
-                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual, 'image' => $fileDestination);
-            } else {
-                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $company_individual, 'image' => './uploads/default-user-image.png');
+
+            try {
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                // set the PDO error mode to exception
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $sql = "INSERT INTO users (full_name, email, phone, company, password)
+                        VALUES ({$conn->quote($full_name)}, 
+                                {$conn->quote($email)}, 
+                                {$conn->quote($phone_number)},
+                                {$is_company},
+                                {$conn->quote($password)}
+                                )";
+
+                echo $sql;
+                exit();
+                // use exec() because no results are returned
+                $conn->exec($sql);
+
+                // get id of inserted sql row
+                $last_id = $conn->lastInsertId();
+                echo "New record created successfully. Last inserted ID is: " . $last_id;
+
+                // check if user is company to insert logo
+                if ($is_company){
+                    $sql = "INSERT INTO logos (id, logo)
+                            VALUES ($last_id, $conn->quote($fileDestination))";
+                }
+
+            } catch (PDOException $e) {
+                echo $sql . "<br>" . $e->getMessage();
             }
+            $conn = null;
+
+
+//            if ($is_company) {
+//
+//
+//                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $is_company, 'image' => $fileDestination);
+//            }
+//            else
+//            {
+//                $newUser = array('full_name' => $full_name, 'phone' => $phone_number, 'password' => $password, "company_individual" => $is_company, 'image' => './uploads/default-user-image.png');
+//            }
+
+
             $json = file_get_contents('database/users.json');
             $data = json_decode($json, true);
+
             foreach ($data as $key => $value) {
                 if ($key == $email) {
+
                     $usernameExists_error = '<span for="email" class=' . $error_class . '>User with this email already exists.</span>';
                     $emailExists_error_class = $error_class;
+
                     $allRight = true;
                 }
+
             }
 
-            if (!$allRight) {
-                $data[$email] = $newUser;
-                move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
-                file_put_contents('database/users.json', json_encode($data));
-                header("location: login.php");
-            }
+//            if (!$allRight) {
+//                $data[$email] = $newUser;
+//                move_uploaded_file($_FILES['logo']['tmp_name'], $fileDestination);
+//                file_put_contents('database/users.json', json_encode($data));
+//                header("location: login.php");
+//            }
         }
     }
 }
@@ -71,7 +117,7 @@ require "lib/navbar.php";
         echo $usernameExists_error;
         echo "</div>";
         Input("mobile", "Phone Number", "number", $phone_number);
-        if ($company_individual === "company") {
+        if ($is_company === "company") {
             Radio("company-individual", "individual-check", "Individual");
             Radio("company-individual", "company-check", "Company", "checked");
         } else {
@@ -81,7 +127,7 @@ require "lib/navbar.php";
 
         ?>
         <div id="image-upload" class=<?php
-        if ($company_individual === "individual" || $company_individual === null) {
+        if ($is_company === "individual" || $is_company === null) {
             echo 'hidden';
         } else {
             echo "";
